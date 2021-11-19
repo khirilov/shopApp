@@ -1,38 +1,152 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #17181f;
+  /* color: #eeedf0; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav {
+  padding: 0 1rem;
+}
+.content {
+  min-height: calc(100vh - 70px - 50px);
+}
+.colorAw {
+  background-color: #6c72cb;
+  color: eeedf0;
+}
+.goods {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+.card {
+  height: 500px;
+  width: 300px;
+}
+.card-image {
+  height: 85%;
+}
+.card-image img {
+  height: 100%;
+  background-size: cover;
+}
+.card .card-content {
+  padding: 5%;
+}
+.card .card-content .card-title {
+  line-height: 20px;
+  font-size: 20px;
+}
+.card-content {
+  height: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-action {
+  background-color: inherit;
+  border-top: 1px solid rgba(160, 160, 160, 0.2);
+  position: relative;
+  padding: 10px 20px;
+  height: 20%;
+}
+.card-action .right {
+  font-weight: 500;
+  font-size: 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.footer-copyright {
+  height: 50px;
+  line-height: 50px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+label:not(:last-child) {
+  margin-right: 1rem;
+}
+.card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.card-content {
+  flex-grow: 1;
+}
+.cart {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1;
+  border-radius: 20%;
+  cursor: pointer;
+  padding: 1rem 1rem 0.5rem 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+@media only screen and (max-width: 480px) {
+  nav .brand-logo {
+    font-size: 1.5rem;
+    position: relative;
+  }
 }
 
-@keyframes App-logo-spin {
+@media (min-width: 800px) {
+  .cart {
+    bottom: unset;
+    top: 5rem;
+  }
+}
+
+.basket-list {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50rem;
+  max-width: 95%;
+  animation: show 0.5s ease-in-out;
+}
+
+.close-basket {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+@keyframes show {
   from {
-    transform: rotate(0deg);
+    top: 80%;
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    top: 50%;
+    opacity: 1;
   }
+}
+@keyframes fade-in {
+  from {
+    top: 3rem;
+    opacity: 0;
+  }
+  to {
+    top: 1rem;
+    opacity: 1;
+  }
+}
+
+.basket-quantity {
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+#toast-container {
+  top: 1rem;
+  animation: fade-in 250ms ease-in-out;
+}
+
+.material-icons {
+  cursor: pointer;
 }
