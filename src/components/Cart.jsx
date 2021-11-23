@@ -8,7 +8,7 @@ function Cart() {
   const quantity = order.length;
 
   return (
-    <div className="cart indigo lighten-2white-text" onClick={handleBasketShow}>
+    <div className="cart" onClick={handleBasketShow}>
       <i className="material-icons">shopping_cart</i>
       {quantity ? <span className="cart-quantity">{quantity}</span> : null}
     </div>

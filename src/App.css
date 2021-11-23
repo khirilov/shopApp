@@ -5,8 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #17181f;
-  /* color: #eeedf0; */
+  background-color: #000000;
+  color: #2a2438;
 }
 
 nav {
@@ -16,8 +16,7 @@ nav {
   min-height: calc(100vh - 70px - 50px);
 }
 .colorAw {
-  background-color: #6c72cb;
-  color: eeedf0;
+  background-color: #352f44;
 }
 .goods {
   display: grid;
@@ -25,8 +24,10 @@ nav {
   gap: 1rem;
 }
 .card {
+  display: flex;
+  flex-direction: column;
   height: 500px;
-  width: 300px;
+  background-color: #dbd8e3;
 }
 .card-image {
   height: 85%;
@@ -37,6 +38,8 @@ nav {
 }
 .card .card-content {
   padding: 5%;
+  height: 7rem;
+  flex-grow: 1;
 }
 .card .card-content .card-title {
   line-height: 20px;
@@ -44,20 +47,6 @@ nav {
 }
 .card-content {
   height: 15%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.card-action {
-  background-color: inherit;
-  border-top: 1px solid rgba(160, 160, 160, 0.2);
-  position: relative;
-  padding: 10px 20px;
-  height: 20%;
-}
-.card-action .right {
-  font-weight: 500;
-  font-size: 15px;
 }
 
 .footer-copyright {
@@ -67,13 +56,7 @@ nav {
 label:not(:last-child) {
   margin-right: 1rem;
 }
-.card {
-  display: flex;
-  flex-direction: column;
-}
-.card-content {
-  flex-grow: 1;
-}
+
 .cart {
   position: fixed;
   bottom: 2rem;
@@ -82,22 +65,9 @@ label:not(:last-child) {
   border-radius: 20%;
   cursor: pointer;
   padding: 1rem 1rem 0.5rem 1rem;
+  background-color: #26a69a;
+  color: #fff;
 }
-
-@media only screen and (max-width: 480px) {
-  nav .brand-logo {
-    font-size: 1.5rem;
-    position: relative;
-  }
-}
-
-@media (min-width: 800px) {
-  .cart {
-    bottom: unset;
-    top: 5rem;
-  }
-}
-
 .basket-list {
   position: fixed;
   top: 50%;
@@ -116,6 +86,21 @@ label:not(:last-child) {
   cursor: pointer;
 }
 
+.material-icons {
+  cursor: pointer;
+}
+
+.basket-quantity {
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+#toast-container {
+  top: 2rem;
+  right: 0;
+  animation: fade-in 250ms ease-in-out;
+}
+
 @keyframes show {
   from {
     top: 80%;
@@ -132,21 +117,27 @@ label:not(:last-child) {
     opacity: 0;
   }
   to {
-    top: 1rem;
+    top: 2rem;
     opacity: 1;
   }
 }
 
-.basket-quantity {
-  cursor: pointer;
-  vertical-align: middle;
+@media only screen and (max-width: 900px) {
+  nav .brand-logo {
+    font-size: 1.5rem;
+    position: relative;
+  }
+  .card {
+    height: auto;
+  }
 }
 
-#toast-container {
-  top: 1rem;
-  animation: fade-in 250ms ease-in-out;
-}
-
-.material-icons {
-  cursor: pointer;
+@media (min-width: 800px) {
+  .cart {
+    bottom: unset;
+    top: 5rem;
+  }
+  #toast-container {
+    right: 8rem;
+  }
 }
